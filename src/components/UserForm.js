@@ -1,9 +1,9 @@
 // Parent component, create a class based component
 
-import React from 'react';
+import React, { Component } from 'react';
 import FormUserDetails from './FormUserDetails'
 
-export class extends React.Component() {
+export class UserForm extends Component {
 	state = {
 		step: 1,
 		firstName: '',
@@ -18,21 +18,21 @@ export class extends React.Component() {
 	nextStep = () => {
 		const { step } = this.state;
 		this.setState({
-			step: step++;
+			step: step + 1
 		});
 	}
 
 	previousStep = () => {
 		const { step } = this.state;
 		this.state({
-			step: step--;
+			step: step - 1
 		})
 	}
 
 	// Handle the fields changing.
 	handleChange = input => e => {
 		this.setState({
-			[input]: e.target.value;
+			[input]: e.target.value
 		})
 	}
 
