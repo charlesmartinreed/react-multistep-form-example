@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import FormUserDetails from './FormUserDetails'
 import FormPersonalDetails from './FormPersonalDetails'
 import Confirm from './Confirm'
+import Success from './Success'
 
 export class UserForm extends Component {
 	state = {
@@ -34,7 +35,7 @@ export class UserForm extends Component {
 	// Handle the fields changing.
 	handleChange = input => e => {
 		this.setState({
-			[input]: e.target.value
+				[input]: e.target.value
 		})
 	}
 
@@ -70,7 +71,9 @@ export class UserForm extends Component {
 						/>
 					)
 				case 4:
-					return <h1>Success</h1>
+					return <Success
+						values={values}
+					/>
 				default:
 					break
 		}
