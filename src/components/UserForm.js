@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import FormUserDetails from './FormUserDetails'
 import FormPersonalDetails from './FormPersonalDetails'
+import Confirm from './Confirm'
 
 export class UserForm extends Component {
 	state = {
@@ -25,7 +26,7 @@ export class UserForm extends Component {
 
 	previousStep = () => {
 		const { step } = this.state;
-		this.state({
+		this.setState({
 			step: step - 1
 		})
 	}
@@ -61,13 +62,21 @@ export class UserForm extends Component {
 						/>
 					)
 				case 3:
-					return <h1>Confirm</h1>
+					return (
+						<Confirm
+							previousStep={this.previousStep}
+							nextStep={this.nextStep}
+							values={values}
+						/>
+					)
 				case 4:
 					return <h1>Success</h1>
+				default:
+					break
 		}
 		return (
 			<div>
-				// depending upon which step we're on, we display the corresponding component
+				{/* depending upon which step we're on, we display the corresponding component */}
 			</div>
 		)
 	}
